@@ -20,6 +20,52 @@ import java.util.*;
 
 public class Assignment2_Collections 
 {
+    void testRun()
+    {
+        ArrayList[] set = new ArrayList[5];
+        set[0] = new ArrayList(5);
+        set[0].add(41);
+        set[0].add(77);
+        set[0].add(74);
+        set[0].add(22);
+        set[0].add(44);
+        
+        set[1] = new ArrayList(1);
+        set[1].add(12);
+        
+        set[2] = new ArrayList(4);
+        set[2].add(37);
+        set[2].add(34);
+        set[2].add(36);
+        set[2].add(52);
+        
+        set[3] = new ArrayList(0);
+        
+        set[4] = new ArrayList(3);
+        set[4].add(20);
+        set[4].add(22);
+        set[4].add(33);
+        
+        try (Close out = outExpect(
+                "The number located at [1, 3] is: 74", EOL,
+                "The number located at [3, 4] is: 52", EOL,
+                "The number located at [3, 1] is: 37", EOL,
+                "ERROR!"))
+        {
+            try
+            {
+                println("The number located at [1, 3] is: " + set[1-1].get(3-1));
+                println("The number located at [3, 4] is: " + set[3-1].get(4-1));
+                println("The number located at [3, 1] is: " + set[3-1].get(1-1));
+                println("The number located at [4, 3] is: " + set[4-1].get(3-1));
+            }
+            catch (Exception e)
+            {
+                println("ERROR!");
+            }
+        }
+    }
+    
     void run() 
     {
         Scanner input = new Scanner(System.in);
