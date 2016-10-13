@@ -46,6 +46,12 @@ public class Assignment2_Collections
         set[4].add(22);
         set[4].add(33);
         
+        assert set[0].get(4).equals(44);
+        assert set[1].get(0).equals(12);
+        assert set[2].get(2).equals(36);
+        assert set[3].isEmpty();
+        assert set[4].get(0).equals(20);
+        
         try (Close out = outExpect(
                 "The number located at [1, 3] is: 74", EOL,
                 "The number located at [3, 4] is: 52", EOL,
