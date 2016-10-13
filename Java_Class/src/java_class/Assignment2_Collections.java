@@ -80,6 +80,7 @@ public class Assignment2_Collections
                 + " denoting number of integers on that line and then there will be 'd' space-separated integers.\n"
                 + " In the next line there will be an integer 'q' denoting number of queries.\n"
                 + " Each query will consist of two integers 'x' and 'y'.");
+        
         int n = input.nextInt();
         int d = 0, q = 0, x = 0, y = 0;
         ArrayList[] set = new ArrayList[n];
