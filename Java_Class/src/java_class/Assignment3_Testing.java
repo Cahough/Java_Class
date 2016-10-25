@@ -68,6 +68,55 @@ public class Assignment3_Testing
                 println("ERROR!");
             }
         }
+        
+        try (Close in = inProvide(
+                5, EOL,
+                5, 41, 77, 74, 22, 44, EOL,
+                1, 12, EOL,
+                4, 37, 34, 36, 52, EOL,
+                0, EOL,
+                3, 20, 22, 33, EOL,
+                3, EOL,
+                1, 3, EOL,
+                3, 4, EOL,
+                3, 1, EOL)) 
+        {
+            try (Close out = outExpect(
+                    74, EOL,
+                    52, EOL,
+                    37, EOL)) 
+            {
+                Scanner input = new Scanner(System.in);
+                int n = readInteger();
+                int d = 0, q = 0, x = 0, y = 0;
+                ArrayList[] set2 = new ArrayList[n];
+
+                for (int i = 0; i < n; i++) 
+                {
+                    d = readInteger();
+                    set2[i] = new ArrayList();
+                    for (int j = 0; j < d; j++) 
+                    {
+                        set2[i].add(readInteger());
+                    }
+                }
+
+                q = readInteger();
+                for (int i = 0; i < q; i++) 
+                {
+                    x = readInteger();
+                    y = readInteger();
+                    try 
+                    {
+                        System.out.println(set2[x - 1].get(y - 1));
+                    } 
+                    catch (Exception e) 
+                    {
+                        System.out.println("ERROR!");
+                    }
+                }
+            }
+        }
     }
     
     void run() 
