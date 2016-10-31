@@ -23,25 +23,31 @@ public class Assignment4
                 + " In the next line there will be an integer 'q' denoting number of queries.\n"
                 + " Each query will consist of two integers 'x' and 'y'.");
         
-        int n = input.nextInt();
-        int d = 0, q = 0, x = 0, y = 0;
+        int n = 0, d = 0, q = 0, x = 0, y = 0;
+        if (input.hasNextInt())
+            n = input.nextInt();
         ArrayList[] set = new ArrayList[n];
         
         for (int i = 0; i < n; i++) 
         {
-            d = input.nextInt();
+            if (input.hasNextInt())
+                d = input.nextInt();
             set[i] = new ArrayList();
             for (int j = 0; j < d; j++)
             {
-                set[i].add(input.nextInt());
+                if (input.hasNextInt())
+                    set[i].add(input.nextInt());
             }
         }
         
-        q = input.nextInt();
+        if (input.hasNextInt())
+            q = input.nextInt();
         for (int i = 0; i < q; i++)
         {
-            x = input.nextInt();
-            y = input.nextInt();
+            if (input.hasNextInt())
+                x = input.nextInt();
+            if (input.hasNextInt())
+                y = input.nextInt();
             try 
             {
                 System.out.println("The number located at [" + x + ", " + y + "] is: " + set[x - 1].get(y - 1));
