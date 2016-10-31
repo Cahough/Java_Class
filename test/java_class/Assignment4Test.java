@@ -10,6 +10,7 @@
 
 package java_class;
 
+import java.util.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -50,8 +51,6 @@ public class Assignment4Test {
         System.out.println("main");
         String[] args = null;
         Assignment4.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
