@@ -39,4 +39,14 @@ public class Assignment5_MultiThreading implements Runnable
         }
         System.out.println("Thread: " + threadName + " exiting.");
     }
+    
+    public void start()
+    {
+        System.out.println("Starting " + threadName);
+        if (t == null)
+        {
+            t = new Thread (this, threadName);
+            t.start();
+        }
+    }
 }
