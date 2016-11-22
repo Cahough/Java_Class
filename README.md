@@ -10,3 +10,5 @@ Assignment4 URL:
 https://github.com/Cahough/Java_Class/blob/assignment4/src/java_class/Assignment4.java
 Assignment4Test URL:
 https://github.com/Cahough/Java_Class/blob/assignment4/test/java_class/Assignment4Test.java
+Assignment5 URL:
+https://github.com/Cahough/Java_Class/blob/assignment5/src/java_class/Assignment5_MultiThreading.java
