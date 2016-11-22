@@ -13,7 +13,7 @@ package java_class;
 class Runner implements Runnable
 {
     private Thread t;
-    private String threadName;
+    private final String threadName;
     
     Runner(String name)
     {
