@@ -34,11 +34,25 @@ public class Phrase
     public String getPhrase()
     {
         int nextInt = randomInt;
-        while(nextInt == randomInt)
+        while (nextInt == randomInt)
             nextInt = random.nextInt(phrases.size());
         this.randomInt = nextInt;
         this.phrase = phrases.get(randomInt);
         
         return phrase;
+    }
+    
+    public String getHiddenPhrase()
+    {
+        StringBuilder hidden = new StringBuilder();
+        for (int i = 0; i < phrase.length(); i++)
+        {
+            String s = phrase.substring(i, i+1);
+            if (s.equals(" ") || s.equals(",") || s.equals("!"))
+                hidden.append(s);
+            else
+                hidden.append("_");
+        }
+        return hidden.toString();
     }
 }
