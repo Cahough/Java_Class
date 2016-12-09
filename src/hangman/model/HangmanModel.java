@@ -16,13 +16,13 @@ import hangman.view.HangmanPanel;
 
 public class HangmanModel 
 {
-    int maxWrongGuesses;
-    int numGuesses;
-    int wrongGuesses;
-    Phrase phrase;
-    String currentPhrase;
-    String hiddenPhrase;
-    List<Character> unguessedLetters;
+    private int maxWrongGuesses;
+    private int numGuesses;
+    private int wrongGuesses;
+    private final Phrase phrase;
+    private String currentPhrase;
+    private String hiddenPhrase;
+    private List<Character> unguessedLetters;
     
     public HangmanModel()
     {
@@ -35,8 +35,8 @@ public class HangmanModel
         this.maxWrongGuesses = HangmanPanel.maxWrongGuesses;
         this.numGuesses = 0;
         this.wrongGuesses = 0;
-        this.currentPhrase = Phrase.getPhrase();
-        this.hiddenPhrase = Phrase.getHiddenPhrase();
+        this.currentPhrase = phrase.getPhrase();
+        this.hiddenPhrase = phrase.getHiddenPhrase();
         this.unguessedLetters = resetLettersGuessed();
     }
     
@@ -109,5 +109,57 @@ public class HangmanModel
                 builder.append(" ");
         }
         return builder.toString();
+    }
+    
+    public String getNumGuesses()
+    {
+        return Integer.toString(numGuesses);
+    }
+    
+    public List<String> getHiddenPhrase()
+    {
+        List<String> lines = new ArrayList<>();
+        int size = 12;
+        String s = hiddenPhrase;
+        
+        while (s.length() > size)
+        {
+            int position = 0;
+            while (position >= 0 && position < size)
+                position = s.indexOf(" ", position+1);
+            if (position >= 0)
+            {
+                String t = s.substring(0, position);
+                lines.add(unHidePhrase(t));
+                s = s.substring(position + 1);
+            }
+            else
+                break;
+        }
+        
+        lines.add(unHidePhrase(s));
+        return lines;
+    }
+    
+    private String unHidePhrase(String phrase)
+    {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < phrase.length(); i ++)
+        {
+            builder.append(phrase.charAt(i));
+            if (i < phrase.length() - 1)
+                builder.append(" ");
+        }
+        return builder.toString();
+    }
+    
+    public int getWrongGuesses()
+    {
+        return wrongGuesses;
+    }
+    
+    public String getCurrentPhrase()
+    {
+        return currentPhrase;
     }
 }
