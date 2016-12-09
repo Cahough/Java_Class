@@ -29,4 +29,14 @@ public class HangmanModel
         this.phrase = new Phrase();
         init();
     }
+    
+    public void init()
+    {
+        this.maxWrongGuesses = HangmanPanel.maxWrongGuesses;
+        this.numGuesses = 0;
+        this.wrongGuesses = 0;
+        this.currentPhrase = Phrase.getPhrase();
+        this.hiddenPhrase = Phrase.getHiddenPhrase();
+        this.unguessedLetters = resetLettersGuessed();
+    }
 }
