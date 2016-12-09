@@ -1,6 +1,6 @@
 /*
  * Carter Hough
- * 12.8.16
+ * 12.9.16
  * CSCI 310: Java
  * Final Project - Hangman
  * Dr. MacEvoy
@@ -38,5 +38,48 @@ public class HangmanModel
         this.currentPhrase = Phrase.getPhrase();
         this.hiddenPhrase = Phrase.getHiddenPhrase();
         this.unguessedLetters = resetLettersGuessed();
+    }
+    
+    private List<Character> resetLettersGuessed()
+    {
+        List<Character> unguessedLetters = new ArrayList<>();
+        for (int i = 0; i < 26; i++)
+        {
+            Character c = (char) (i+'A');
+            unguessedLetters.add(c);
+        }
+        return unguessedLetters;
+    }
+    
+    public boolean isPossibleLetter(String letter)
+    {
+        return unguessedLetters.contains(letter.toUpperCase().charAt(0));
+    }
+    
+    public void guessLetter(String letter)
+    {
+        String lower = letter.toLowerCase();
+        String upper = letter.toUpperCase();
+        StringBuilder builder = new StringBuilder();
+        boolean incorrectGuess = true;
+        
+        for (int i = 0; i < currentPhrase.length(); i++)
+        {
+            String s = currentPhrase.substring(i, i+1);
+            if (lower.equals(s.toLowerCase()))
+            {
+                builder.append(s);
+                incorrectGuess = false;
+            }
+            else
+                builder.append(hiddenPhrase.charAt(i));
+        }
+        numGuesses++;
+        
+        if (incorrectGuess)
+            wrongGuesses++;
+        
+        unguessedLetters.remove(upper.charAt(0));
+        hiddenPhrase = builder.toString();
     }
 }
