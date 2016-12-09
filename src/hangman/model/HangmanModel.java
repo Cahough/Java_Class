@@ -82,4 +82,32 @@ public class HangmanModel
         unguessedLetters.remove(upper.charAt(0));
         hiddenPhrase = builder.toString();
     }
+    
+    public boolean isDead()
+    {
+        return wrongGuesses >= maxWrongGuesses;
+    }
+    
+    public boolean isSolved()
+    {
+        boolean isSolved = true;
+        for (int i = 0; isSolved && i < hiddenPhrase.length(); i++)
+        {
+            if (hiddenPhrase.charAt(i) == '_')
+                isSolved = false;
+        }
+        return isSolved;
+    }
+    
+    public String getUnguessedLetters()
+    {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < unguessedLetters.size(); i++)
+        {
+            builder.append(unguessedLetters.get(i));
+            if (i < unguessedLetters.size() - 1)
+                builder.append(" ");
+        }
+        return builder.toString();
+    }
 }
