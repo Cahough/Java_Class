@@ -21,10 +21,7 @@ import javax.swing.JPanel;
 import hangman.model.HangmanModel;
  
 public class HangmanPanel extends JPanel 
-{
-     
-    //private static final long serialVersionUID = -4531686346612357752L;
-     
+{    
     public static final int maxWrongGuesses = 10;
      
     private final int baseWidth = 200;
@@ -37,7 +34,7 @@ public class HangmanPanel extends JPanel
     {
         this.model = model;
         this.setPreferredSize(new Dimension(300, 400));
-//      this.setBackground(Color.WHITE);
+        //this.setBackground(Color.WHITE);
     }
      
     @Override
@@ -45,8 +42,8 @@ public class HangmanPanel extends JPanel
     {
         super.paintComponent(g);
          
-        Color color1 = Color.BLUE;
-        Color color2 = Color.BLUE;
+        Color color1 = new Color(102, 51, 0);
+        Color color2 = Color.BLACK;
         g.setColor(color1);
          
         switch (model.getWrongGuesses()) 
