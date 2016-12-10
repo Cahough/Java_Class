@@ -25,7 +25,7 @@ public final class HangmanFrame
     private GuessPanel guessPanel;
     private final HangmanModel model;
     private HangmanPanel drawingPanel;
-    private JFrame          frame;
+    private JFrame frame;
  
     public HangmanFrame(HangmanModel model) 
     {
@@ -40,7 +40,7 @@ public final class HangmanFrame
         guessPanel.setDrawingPanel(drawingPanel);
  
         frame = new JFrame();
-        frame.setTitle("Hangman");
+        frame.setTitle("Java Hangman");
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() 
         {
