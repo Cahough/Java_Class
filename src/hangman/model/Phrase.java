@@ -27,7 +27,7 @@ public class Phrase
         this.randomInt = -1;
         this.phrases = new ArrayList<>();
         this.phrases.add("Hello World");
-        this.phrases.add("Hangman is fun!");
+        this.phrases.add("Hangman is fun");
         // add more phrases
     }
     
@@ -48,7 +48,7 @@ public class Phrase
         for (int i = 0; i < phrase.length(); i++)
         {
             String s = phrase.substring(i, i+1);
-            if (s.equals(" ") || s.equals(",") || s.equals("!"))
+            if (s.equals(" ") || s.equals(","))
                 hidden.append(s);
             else
                 hidden.append("_");
