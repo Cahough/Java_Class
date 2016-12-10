@@ -12,6 +12,5 @@ Assignment4Test URL:
 https://github.com/Cahough/Java_Class/blob/assignment4/test/java_class/Assignment4Test.java
 Assignment5 URL:
 https://github.com/Cahough/Java_Class/blob/assignment5/src/java_class/Threading.java
-
 Final Project URL:
 https://github.com/Cahough/Java_Class/tree/final_project/src/hangman
