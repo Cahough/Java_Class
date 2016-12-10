@@ -33,6 +33,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
+import hangman.model.HangmanModel;
+
 public class GuessPanel 
 {
     protected static final Insets bottomInsets = new Insets(10, 10, 10, 10);
@@ -94,7 +96,7 @@ public class GuessPanel
         addComponent(panel, guessesTitle, 0, gridy++, 2, 1, spacingInsets,
                 GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL);
  
-        guessesText = new JLabel(model.getNumberOfGuesses());
+        guessesText = new JLabel(model.getNumGuesses());
         guessesText.setHorizontalAlignment(JLabel.CENTER);
         addComponent(panel, guessesText, 0, gridy++, 2, 1, normalInsets,
                 GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL);
@@ -139,7 +141,7 @@ public class GuessPanel
     public void updatePartControl() 
     {
         possibleLettersText.setText(model.getUnguessedLetters());
-        guessesText.setText(model.getNumberOfGuesses());
+        guessesText.setText(model.getNumGuesses());
  
         phrase = model.getHiddenPhrase();
         for (int i = 0; i < phrase.size(); i++) 
@@ -152,7 +154,7 @@ public class GuessPanel
     public void resetPartControl() 
     {
         possibleLettersText.setText(model.getUnguessedLetters());
-        guessesText.setText(model.getNumberOfGuesses());
+        guessesText.setText(model.getNumGuesses());
  
         removePhraseControl(panel);
         int gridy = phraseGridy;
