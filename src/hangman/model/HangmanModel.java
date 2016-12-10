@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import hangman.view.HangmanPanel;
 
-public class HangmanModel 
+public final class HangmanModel 
 {
     private int maxWrongGuesses;
     private int numGuesses;
