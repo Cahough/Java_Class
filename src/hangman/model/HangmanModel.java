@@ -45,7 +45,7 @@ public class HangmanModel
         List<Character> unguessedLetters = new ArrayList<>();
         for (int i = 0; i < 26; i++)
         {
-            Character c = (char) (i+'A');
+            Character c = (char) (i + 'A');
             unguessedLetters.add(c);
         }
         return unguessedLetters;
@@ -53,7 +53,9 @@ public class HangmanModel
     
     public boolean isPossibleLetter(String letter)
     {
-        return unguessedLetters.contains(letter.toUpperCase().charAt(0));
+        String u = letter.toUpperCase();
+        Character c = u.charAt(0);
+        return unguessedLetters.contains(c);
     }
     
     public void guessLetter(String letter)
@@ -79,7 +81,8 @@ public class HangmanModel
         if (incorrectGuess)
             wrongGuesses++;
         
-        unguessedLetters.remove(upper.charAt(0));
+        Character c = upper.charAt(0);
+        unguessedLetters.remove(c);
         hiddenPhrase = builder.toString();
     }
     
@@ -105,7 +108,7 @@ public class HangmanModel
         for (int i = 0; i < unguessedLetters.size(); i++)
         {
             builder.append(unguessedLetters.get(i));
-            if (i < unguessedLetters.size() - 1)
+            if (i < (unguessedLetters.size() - 1))
                 builder.append(" ");
         }
         return builder.toString();
@@ -147,7 +150,7 @@ public class HangmanModel
         for (int i = 0; i < phrase.length(); i ++)
         {
             builder.append(phrase.charAt(i));
-            if (i < phrase.length() - 1)
+            if (i < (phrase.length() - 1))
                 builder.append(" ");
         }
         return builder.toString();
