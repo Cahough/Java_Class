@@ -20,7 +20,7 @@ public class Hangman implements Runnable
     @Override
     public void run() 
     {
-        new HangmanFrame(new HangmanModel());
+        HangmanFrame hangmanFrame = new HangmanFrame(new HangmanModel());
     }
 
     public static void main(String[] args) 
