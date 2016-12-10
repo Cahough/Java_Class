@@ -42,8 +42,8 @@ public class GuessPanel
     protected static final Insets spacingInsets = new Insets(20, 10, 0, 10);
  
     private int phraseGridy;
-    private HangmanFrame frame;
-    private HangmanModel model;
+    private final HangmanFrame frame;
+    private final HangmanModel model;
     private HangmanPanel drawingPanel;
     private JButton guessButton;
     private JLabel guessesText;
@@ -52,15 +52,15 @@ public class GuessPanel
     private JPanel panel;
     private JTextField guessTextField;
  
-    private List<JLabel> phraseText;
+    private final List<JLabel> phraseText;
     private List<String> phrase;
  
     public GuessPanel(HangmanFrame frame, HangmanModel model) 
     {
         this.frame = frame;
         this.model = model;
-        this.phrase = new ArrayList<String>();
-        this.phraseText = new ArrayList<JLabel>();
+        this.phrase = new ArrayList<>();
+        this.phraseText = new ArrayList<>();
         createPartControl();
     }
  
