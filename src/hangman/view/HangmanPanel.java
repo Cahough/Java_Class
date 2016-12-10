@@ -23,7 +23,7 @@ import hangman.model.HangmanModel;
 public class HangmanPanel extends JPanel 
 {
      
-    private static final long serialVersionUID = -4531686346612357752L;
+    //private static final long serialVersionUID = -4531686346612357752L;
      
     public static final int maxWrongGuesses = 10;
      
