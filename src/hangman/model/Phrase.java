@@ -1,6 +1,6 @@
 /*
  * Carter Hough
- * 12.8.16
+ * 12.12.16
  * CSCI 310: Java
  * Final Project - Hangman
  * Dr. MacEvoy
