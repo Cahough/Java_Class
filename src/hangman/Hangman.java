@@ -1,6 +1,6 @@
 /*
  * Carter Hough
- * 12.9.16
+ * 12.12.16
  * CSCI 310: Java
  * Final Project - Hangman
  * Dr. MacEvoy
@@ -13,6 +13,7 @@ package hangman;
 import javax.swing.SwingUtilities;
 import hangman.model.HangmanModel;
 import hangman.view.HangmanFrame;
+import static kiss.API.*;
 
 public class Hangman implements Runnable 
 {
@@ -23,7 +24,7 @@ public class Hangman implements Runnable
         HangmanFrame hangmanFrame = new HangmanFrame(new HangmanModel());
     }
 
-    public static void main(String[] args) 
+    public static void Run(String[] args) 
     {
         SwingUtilities.invokeLater(new Hangman());
     }
