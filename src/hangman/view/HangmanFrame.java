@@ -1,6 +1,6 @@
 /*
  * Carter Hough
- * 12.9.16
+ * 12.12.16
  * CSCI 310: Java
  * Final Project - Hangman
  * Dr. MacEvoy
@@ -19,8 +19,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
  
 import hangman.model.HangmanModel;
-import java.awt.Dimension;
-import java.awt.Toolkit;
  
 public final class HangmanFrame 
 {
@@ -33,7 +31,7 @@ public final class HangmanFrame
     {
         this.model = model;
         createPartControl();
-        centerWindow();
+        frame.setLocationRelativeTo( null );
     }
  
     protected void createPartControl() 
@@ -75,13 +73,5 @@ public final class HangmanFrame
     public JFrame getFrame() 
     {
         return frame;
-    }
-    
-    public void centerWindow()
-    {
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-        frame.setLocation(x, y); 
     }
 }
