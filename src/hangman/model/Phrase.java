@@ -13,6 +13,7 @@ package hangman.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import static kiss.API.*;
 
 public class Phrase 
 {
@@ -42,6 +43,22 @@ public class Phrase
         this.phrases.add("Antidisestablishmentarianism");
     }
     
+    public void testgetPhrase()
+    {
+        String testPhrase;
+        int nextInt = randomInt;
+        while (nextInt == randomInt)
+            nextInt = random.nextInt(phrases.size());
+        this.randomInt = nextInt;
+        testPhrase = phrases.get(randomInt);
+        
+        assert phrases.contains(testPhrase);
+        try (Close out = outExpect(testPhrase)) 
+        {
+            println(phrases.get(randomInt));
+        }
+    }
+    
     public String getPhrase()
     {
         int nextInt = randomInt;
@@ -51,6 +68,21 @@ public class Phrase
         this.phrase = phrases.get(randomInt);
         
         return phrase;
+    }
+    
+    public void testgetHiddenPhrase()
+    {
+        StringBuilder hidden = new StringBuilder();
+        String testPhrase = "hello";
+        for (int i = 0; i < testPhrase.length(); i++)
+        {
+            String s = testPhrase.substring(i, i+1);
+            if (s.equals(" ") || s.equals(","))
+                hidden.append(s);
+            else
+                hidden.append("_");
+        }
+        assert hidden.toString().equals("_____");
     }
     
     public String getHiddenPhrase()
