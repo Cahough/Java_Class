@@ -34,7 +34,6 @@ public class HangmanPanel extends JPanel
     {
         this.model = model;
         this.setPreferredSize(new Dimension(300, 400));
-        //this.setBackground(Color.WHITE);
     }
      
     @Override
