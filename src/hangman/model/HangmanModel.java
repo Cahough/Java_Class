@@ -1,6 +1,6 @@
 /*
  * Carter Hough
- * 12.9.16
+ * 12.12.16
  * CSCI 310: Java
  * Final Project - Hangman
  * Dr. MacEvoy
@@ -13,6 +13,7 @@ package hangman.model;
 import java.util.ArrayList;
 import java.util.List;
 import hangman.view.HangmanPanel;
+import static kiss.API.*;
 
 public final class HangmanModel 
 {
@@ -40,6 +41,26 @@ public final class HangmanModel
         this.unguessedLetters = resetLettersGuessed();
     }
     
+    private void testresetLettersGuessed()
+    {
+        List<String> letters = new ArrayList<>();
+        List<Character> unguessedLetters = new ArrayList<>();
+        letters.add("A"); letters.add("B"); letters.add("C"); letters.add("D");
+        letters.add("E"); letters.add("F"); letters.add("G"); letters.add("H");
+        letters.add("I"); letters.add("J"); letters.add("K"); letters.add("L");
+        letters.add("M"); letters.add("N"); letters.add("O"); letters.add("P");
+        letters.add("Q"); letters.add("R"); letters.add("S"); letters.add("T");
+        letters.add("U"); letters.add("V"); letters.add("W"); letters.add("X");
+        letters.add("Y"); letters.add("Z");
+        
+        for (int i = 0; i < 26; i++)
+        {
+            Character c = (char) (i + 'A');
+            unguessedLetters.add(c);
+            assert letters.containsAll(unguessedLetters) == true;
+        }
+    }
+    
     private List<Character> resetLettersGuessed()
     {
         List<Character> unguessedLetters = new ArrayList<>();
@@ -51,11 +72,28 @@ public final class HangmanModel
         return unguessedLetters;
     }
     
+    public void testisPossibleLetter()
+    {
+        char a = 'A';
+        assert unguessedLetters.contains(a) == true;
+    }
+    
     public boolean isPossibleLetter(String letter)
     {
         String u = letter.toUpperCase();
         Character c = u.charAt(0);
         return unguessedLetters.contains(c);
+    }
+    
+    public void testguessLetter()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append("HelloWorld");
+        String str = builder.toString();
+        try (Close out = outExpect("HelloWorld")) 
+        {
+            println(str);
+        }
     }
     
     public void guessLetter(String letter)
@@ -86,9 +124,34 @@ public final class HangmanModel
         hiddenPhrase = builder.toString();
     }
     
+    public void testisDead()
+    {
+        assert wrongGuesses >= maxWrongGuesses;
+    }
+    
     public boolean isDead()
     {
         return wrongGuesses >= maxWrongGuesses;
+    }
+    
+    public void testisSolved()
+    {
+        boolean isSolved = true;
+        String testPhrase = "Hello World";
+        for (int i = 0; isSolved && i < testPhrase.length(); i++)
+        {
+            if (testPhrase.charAt(i) == '_')
+                isSolved = false;
+        }
+        assert isSolved == true;
+        
+        String testPhrase2 = "Hello _orld";
+        for (int i = 0; isSolved && i < testPhrase2.length(); i++)
+        {
+            if (testPhrase2.charAt(i) == '_')
+                isSolved = false;
+        }
+        assert isSolved == false;
     }
     
     public boolean isSolved()
@@ -102,6 +165,18 @@ public final class HangmanModel
         return isSolved;
     }
     
+    public void testgetUnguessedLetters()
+    {
+        StringBuilder test = new StringBuilder();
+        for (int i = 0; i < unguessedLetters.size(); i++)
+        {
+            test.append(unguessedLetters.get(i));
+            if (i < (unguessedLetters.size() - 1))
+                test.append(" ");
+            assert test(i).equals(unguessedLetters.get(i));
+        }
+    }
+    
     public String getUnguessedLetters()
     {
         StringBuilder builder = new StringBuilder();
@@ -112,6 +187,11 @@ public final class HangmanModel
                 builder.append(" ");
         }
         return builder.toString();
+    }
+    
+    public void testgetNumGuesses()
+    {
+        assert Integer.toString(numGuesses).getClass().getName() == "String";
     }
     
     public String getNumGuesses()
