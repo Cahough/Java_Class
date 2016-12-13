@@ -28,7 +28,18 @@ public class Phrase
         this.phrases = new ArrayList<>();
         this.phrases.add("Hello World");
         this.phrases.add("Hangman is fun");
-        // add more phrases
+        this.phrases.add("Veterinary");
+        this.phrases.add("Zoologist");
+        this.phrases.add("Vegetables");
+        this.phrases.add("Laundry");
+        this.phrases.add("Whirlwind");
+        this.phrases.add("Xylophonist");
+        this.phrases.add("Quadruplets");
+        this.phrases.add("Quiver");
+        this.phrases.add("X Ray");
+        this.phrases.add("Refrigerator");
+        this.phrases.add("Beautiful");
+        this.phrases.add("Antidisestablishmentarianism");
     }
     
     public String getPhrase()
